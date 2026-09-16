@@ -1,4 +1,4 @@
-﻿{
+{
   "header-news": "New feature: Protect your account with Two-Factor Authentication (2FA) and enjoy the future of login with Passkeys â€” no passwords needed.",
   "header-news-btn": "Setup now",
   "sandbox-news": "This is a sandbox environment. Please do not use it for production purposes.",
@@ -71,7 +71,7 @@
   "login-page": "Login Page",
   "or": "OR",
   "signup-page": "Signup page",
-  "password-match-length": "New password and confirmation password must match"
+  "password-match-length": "New password and confirmation password must match",
   "password-length": "Password should be 8 characters long",
   "password-case": "Password should contain uppercase letter, lowercase letter, digit",
   "password-special-char": " Password should contain special character",
@@ -1592,9 +1592,9 @@
   "logic-op-unchecked": "is not checked",
   "widget-hidden-due-to-logic": "This widget is hidden due to conditional logic.",
   "remove": "Remove",
-  "attachement-note":"Note: This widget allows signers to upload a file during the signing process. The uploaded file will be appended as additional pages at the end of the existing PDF",
-  "attachments-docx-not-supported":"We are currently experiencing an issue with DOCX file uploads. Please try uploading the document in a different supported format, or try again later.",
-   "access-code": "Access code",
+  "attachement-note": "Note: This widget allows signers to upload a file during the signing process. The uploaded file will be appended as additional pages at the end of the existing PDF",
+  "attachments-docx-not-supported": "We are currently experiencing an issue with DOCX file uploads. Please try uploading the document in a different supported format, or try again later.",
+  "access-code": "Access code",
   "access-code-set": "Access code set",
   "access-code-add": "Add access code",
   "access-code-help": "Optional secret only this signer knows. They will be required to enter it before viewing or signing the document. Share it with the recipient out-of-band (phone, in person).",
@@ -1614,5 +1614,3 @@
   "hide-access-code": "Hide access code",
   "already-copied-to-clipboard": "Already copied to clipboard"
 }
-
-
