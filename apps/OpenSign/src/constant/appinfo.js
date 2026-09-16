@@ -1,0 +1,57 @@
+import logo from "../assets/images/justice-document-sign-logo.png";
+import favicon from "../assets/images/justice-document-sign-favicon.png";
+import { getEnv } from "./Utils";
+
+export function serverUrl_fn() {
+  const env = getEnv();
+  const serverurl = env?.REACT_APP_SERVERURL
+    ? env.REACT_APP_SERVERURL // env.REACT_APP_SERVERURL is used for prod
+    : process.env.REACT_APP_SERVERURL; //  process.env.REACT_APP_SERVERURL is used for dev (locally)
+  let baseUrl = serverurl ? serverurl : window.location.origin + "/api/app";
+  return baseUrl;
+}
+export const appInfo = {
+  applogo: logo,
+  appId: process.env.REACT_APP_APPID ? process.env.REACT_APP_APPID : "justicesign",
+  baseUrl: serverUrl_fn(),
+  defaultRole: "contracts_User",
+  fev_Icon: favicon,
+  googleClientId: process.env.REACT_APP_GOOGLECLIENTID
+    ? `${process.env.REACT_APP_GOOGLECLIENTID}`
+    : "",
+  metaDescription:
+    "The fastest way to sign PDFs & request signatures from others.",
+  settings: [
+    {
+      role: "contracts_Admin",
+      menuId: "VPh91h0ZHk",
+      pageType: "dashboard",
+      pageId: "35KBoSgoAK",
+      extended_class: "contracts_Users"
+    },
+    {
+      role: "contracts_OrgAdmin",
+      menuId: "VPh91h0ZHk",
+      pageType: "dashboard",
+      pageId: "35KBoSgoAK",
+      extended_class: "contracts_Users"
+    },
+    {
+      role: "contracts_Editor",
+      menuId: "H9vRfEYKhT",
+      pageType: "dashboard",
+      pageId: "35KBoSgoAK",
+      extended_class: "contracts_Users"
+    },
+    {
+      role: "contracts_User",
+      menuId: "H9vRfEYKhT",
+      pageType: "dashboard",
+      pageId: "35KBoSgoAK",
+      extended_class: "contracts_Users"
+    }
+  ]
+};
+
+
+

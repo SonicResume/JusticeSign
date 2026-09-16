@@ -1,0 +1,19 @@
+:80 {
+    handle /api/app* {
+        uri strip_prefix /api
+        reverse_proxy server:8080
+    }
+
+    handle /api/decryptpdf {
+        uri strip_prefix /api
+        reverse_proxy server:8080
+    }
+
+    handle /app* {
+        reverse_proxy server:8080
+    }
+
+    handle {
+        reverse_proxy client:3000
+    }
+}

@@ -1,0 +1,58 @@
+services:
+  server:
+    image: justiceoncall/justicesign-server:latest
+    container_name: JusticeSign-server
+    volumes:
+      - opensign-files:/usr/src/app/files
+    ports:
+      - "127.0.0.1:30000:8080"
+    depends_on:
+      - mongo
+    env_file: .env.prod
+    environment:
+      NODE_ENV: production
+      HOST_URL: https://sign.justiceoncall.ca
+      SERVER_URL: https://sign-api.justiceoncall.ca/api/app
+      INTERNAL_SERVER_URL: http://server:8080/app
+      PUBLIC_URL: https://sign.justiceoncall.ca
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    container_name: JusticeSign-mongo
+    volumes:
+      - data-volume:/data/db
+    ports:
+      - "27019:27017"
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: .
+      dockerfile: apps/OpenSign/Dockerfile.justice
+      args:
+        VITE_SERVER_URL: https://sign-api.justiceoncall.ca/api/app
+        VITE_API_URL: https://sign-api.justiceoncall.ca/api/app
+    image: justiceoncall/justicesign-client:latest
+    container_name: JusticeSign-client
+    depends_on:
+      - server
+    env_file: .env.prod
+    environment:
+      VITE_SERVER_URL: https://sign-api.justiceoncall.ca/api/app
+      VITE_API_URL: https://sign-api.justiceoncall.ca/api/app
+    ports:
+      - "3002:3000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  opensign-files:
+    external: true
+    name: opensign-staging_opensign-files
+  data-volume:

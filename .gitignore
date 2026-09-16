@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+.git/
+*.pem
+*.key
+*.p12
+*.pfx
+.vercel
+
+# Local development certificates
+cert/
+
+apps/OpenSign/.vercel.prod.env
